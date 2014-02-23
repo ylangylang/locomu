@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2954852382">
+    <data-source source="LOCAL" name="Rails locomu_a: development" uuid="e6706740-3b0a-4bb2-8f21-265292ad1bad">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:locomu_a_development</jdbc-url>
+      <user-name>sufica</user-name>
+      <user-password>dfd9dfdfdfccdfc3dfc9dfcb</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails locomu_a: test" uuid="eae3b78a-620d-4aed-847f-620fac7f496c">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:locomu_a_test</jdbc-url>
+      <user-name>sufica</user-name>
+      <user-password>dfd9dfdfdfccdfc3dfc9dfcb</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails locomu_a: production" uuid="5fc28b78-7eee-4877-a8d6-3e3541565445">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:locomu_a_production</jdbc-url>
+      <user-name>sufica</user-name>
+      <user-password>dfd9dfdfdfccdfc3dfc9dfcb</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

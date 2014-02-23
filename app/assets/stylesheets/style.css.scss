@@ -1,0 +1,33 @@
+@import "bootstrap";
+@import "semantic-ui";
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  background: $gray-lighter;
+  margin: 0px;
+  padding: 0px;
+  color: #555555;
+  text-rendering: optimizeLegibility;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 0.8em;
+}
+
+#error_explanation {
+  @extend .ui.error.message;
+  padding: 0.2em;
+  border: 0.1em outset $gray-lighter;
+
+  h2 {
+    font-size: 1.2em;
+  }
+}
+
+
+section.content {
+  //padding-top: 120px;
+}
