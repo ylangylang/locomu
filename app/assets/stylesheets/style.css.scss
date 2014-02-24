@@ -1,6 +1,10 @@
 @import "bootstrap";
 @import "semantic-ui";
 
+html {
+  font-size: 100%;
+}
+
 body {
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   background: $gray-lighter;

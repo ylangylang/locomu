@@ -1,0 +1,73 @@
+<div id="home-index" class="home">
+
+  <div class="home-image">
+    <img src="/assets/nature6.jpg">
+  </div>
+
+  <div class="home-container">
+    <div class="ui fluid grid">
+      <div id="logo" class="ten wide column">
+        <div class="ui segment">
+            <div class="logo ui huge header">
+              Locomu β
+              <i class="small circular inverted green smile outline icon"></i>
+            </div>
+            <div class="home-container-explain">
+              <h3>Peace begins with a smile. <br>
+                We willingly believe what our wish.<br>
+                The most important thing is to enjoy your life.<br>
+                – to be happy – it's all that matters.<br>
+                If you can dream it, you can do it.<br>
+                kitto sonna wake de su<br>
+              </h3>
+            </div>
+        </div>
+      </div>
+
+      <div id="form" class="six wide column">
+        <% if controller.controller_name == 'sessions' %>
+           <%= render '/user_auths/sessions/sign_in' %>
+        <% else %>
+            <%= render '/user_auths/registrations/sign_up' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div id="home-heading">
+    <div class="ui five connected items">
+      <div class="row">
+        <div class="item">
+          <div class="content">
+            <div class="name">Cute Dog</div>
+            <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="name">Faithful Dog</div>
+            <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="name">Silly Dog</div>
+            <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="name">Cute Dog</div>
+            <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="name">Faithful Dog</div>
+            <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

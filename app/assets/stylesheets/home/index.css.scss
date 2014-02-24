@@ -1,0 +1,75 @@
+@import "bootstrap";
+
+@mixin transparently($opacity) {
+  opacity: $opacity;
+  $opacityIE: $opacity * 100;
+  filter: alpha(opacity=$opacityIE);
+}
+div#home-index {
+  background-color: $gray;
+
+  .home-image {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .home-container {
+    position: absolute;
+    top: 1.5em;
+    left: 2em;
+    right: 2em;
+    z-index: 100;
+
+    #logo {
+      .ui.segment {
+        background-color: rgba(220, 220, 220, 0.2);
+      }
+
+      .logo {
+        color: $gray-dark;
+        text-align : center;
+        //font-family: 'Coda Caption', sans-serif;
+        font-family: 'Ribeye Marrow', cursive;
+        font-weight: 400;
+        font-size: 4em;
+        i {
+          font-size: 0.5em;
+        }
+      }
+    }
+
+    #form {
+      .ui.segment {
+        background-color: rgba(220, 220, 220, 0.9);
+      }
+    }
+
+    .home-container-explain {
+      padding-top: 0.5em;
+
+      color: whitesmoke;
+      font-family: 'Ribeye Marrow', cursive;
+      text-align : center;
+    }
+  }
+
+  #home-heading {
+    position: absolute;
+    top: 500px;
+    left: 3em;
+    right: 3em;
+
+    padding-top: 0.5em;
+  }
+}

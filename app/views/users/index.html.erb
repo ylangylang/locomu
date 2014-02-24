@@ -1,15 +1,16 @@
-<h1>Listing users</h1>
+<div id="user-index">
 
-<table>
+<%= render '/shared/title' %>
+
+
+<table class="ui secondary inverted green compact celled table segment">
   <thead>
     <tr>
+      <th>Nickname</th>
       <th>First name</th>
       <th>Last name</th>
-      <th>Nickname</th>
-      <th>Use nickname</th>
       <th>Birthday</th>
       <th>Gender</th>
-      <th>Email sub</th>
       <th>Mail notification</th>
       <th>Admin</th>
       <th>Status</th>
@@ -23,13 +24,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= user.nickname %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <td><%= user.nickname %></td>
-        <td><%= user.use_nickname %></td>
         <td><%= user.birthday %></td>
         <td><%= user.gender %></td>
-        <td><%= user.email_sub %></td>
         <td><%= user.mail_notification %></td>
         <td><%= user.admin %></td>
         <td><%= user.status %></td>
@@ -41,6 +40,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
