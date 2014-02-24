@@ -1,6 +1,5 @@
 <div id="shared-header" class="ui menu">
   <div id="header-menu" class="ui fixed transparent small inverted main menu">
-    <div class="container">
       <div class="title item">
         <i class="chat icon"></i>
         <b>Locomu:</b> Beta
@@ -9,7 +8,7 @@
       <div class="right menu">
         <div class="title item">
           <i class="inverted teal user icon"></i>
-          里井　誠
+          <%= current_user_full_name %>
         </div>
         <div class="circular ui secondary green icon tiny button">
         <div class="ui dropdown item">
@@ -18,11 +17,11 @@
           <div class="menu">
             <a class="item"><i class="edit icon"></i> Edit Profile</a>
             <a class="item"><i class="sign out icon"></i> Sign Out</a>
+            <%= link_to "Sign Out", destroy_user_auth_session_path, method: :delete %>
           </div>
           </div>
         </div>
       </div>
-    </div>
   </div>
 
   <div id="main-menu" class="ui purple inverted large tiered menu">

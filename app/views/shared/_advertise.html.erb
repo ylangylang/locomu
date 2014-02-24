@@ -2,6 +2,8 @@
     <div class="ui horizontal label">advertise</div>
     <br>
 
-    <%= render '/shared/rakuten'%>
+    <% if controller_name == 'absolute_not' %>
+        <%= render '/shared/rakuten' %>
+    <% end %>
 
 </div>

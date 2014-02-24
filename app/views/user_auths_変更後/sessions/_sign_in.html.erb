@@ -1,0 +1,31 @@
+<div id="devise-sessions-sign_in" class="ui form stacked segment">
+<%= form_for(resource, as:resource_name, url:session_path(resource_name), html:{class:"form-sign"}) do |f| %>
+    <%= devise_error_messages! %>
+    <strong>
+        <% if notice.present? %>
+            <div class="alert-info text-center"><%= notice %></div>
+        <% end %>
+        <% if alert.present? %>
+            <div class="alert-danger text-center"><%= alert %></div>
+      <% end %>
+    </strong>
+
+    <h2 class="form-sign-heading">Please sign in</h2>
+
+      <div class="ui left icon input">
+        <%= f.email_field :email, :autofocus => true, placeholder:"Email address" %>
+        <i class="teal mail icon"></i>
+      </div>
+      <div class="ui left icon input">
+        <%= f.password_field :password,  placeholder:"Password" %>
+        <i class="red lock icon"></i>
+      </div>
+
+    <% if devise_mapping.rememberable? %>
+        <div><%= f.check_box :remember_me, class: "ui checkbox" %> <%= f.label :remember_me %></div>
+    <% end %>
+
+    <div id="submit"><%= f.submit "Sign in", class:"ui purple button" %></div>
+    <%= render "user_auths/shared/links" %>
+<% end %>
+</div>

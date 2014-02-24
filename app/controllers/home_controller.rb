@@ -1,10 +1,9 @@
 class HomeController < ApplicationController
   def index
     if user_auth_signed_in?
-      #redirect_to controller:'devise/sessions', action:'new'
-      redirect_to '/users/index'
+      redirect_to controller:'users', action:'index'
     else
-      redirect_to controller:'user_auths/registrations', action:'new' #, layout: false # , layout:false #layout:'user_auths'
+      redirect_to controller:'user_auths/registrations', action:'new'
     end
   end
 end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -10,9 +10,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    if user_auth_signed_in?
-      @user = User.find(current_user_auth.user_id)
-    end
   end
 
   # GET /users/new
@@ -22,6 +19,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if user_auth_signed_in?
+      @user = User.find(current_user_auth.user_id)
+    end
   end
 
   # POST /users
@@ -64,6 +64,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def foo
+    current_user.full_name
+  end
+
+  ################################################################################################
+  # private
+  ################################################################################################
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -74,4 +81,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :nickname, :use_nickname, :birthday, :gender, :email_sub, :mail_notification, :admin, :status, :avatar)
     end
+
 end
