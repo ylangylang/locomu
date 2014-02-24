@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ShareControllerTest < ActionController::TestCase
+class SharedControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

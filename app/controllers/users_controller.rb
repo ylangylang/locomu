@@ -19,9 +19,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    if user_auth_signed_in?
-      @user = User.find(current_user_auth.user_id)
-    end
   end
 
   # POST /users
@@ -43,6 +40,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    # 仮登録をアクティブに変更
+    @user.set_status(:active) if @user.has_status?(:provisional)
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -64,9 +64,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def foo
-    current_user.full_name
+  def edit_profile
+    @user = current_user
   end
+
 
   ################################################################################################
   # private

@@ -11,6 +11,19 @@ class ApplicationController < ActionController::Base
   ################################################################################################
   protected
 
+  def current_user
+    if user_auth_signed_in? && (not current_user_auth.nil?)
+      @current_user = User.find(current_user_auth.user_id) if @current_user.nil?
+      @current_user
+    else
+      authenticate_user_auth!
+    end
+  rescue ActiveRecord::RecordNotFound
+    # todo:処理検討
+    redirect_to controller:'user_auths/registrations', action:'new'
+  end
+
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :user_id
   end

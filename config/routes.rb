@@ -5,7 +5,11 @@ LocomuA::Application.routes.draw do
       sessions: "user_auths/sessions",
       passwords: "user_auths/passwords"
   }
-  resources :users
+  resources :users do
+    collection do
+      get 'edit_profile'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -21,17 +25,6 @@ LocomuA::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
 
   # Example resource route with sub-resources:
   #   resources :products do
