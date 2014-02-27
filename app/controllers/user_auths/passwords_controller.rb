@@ -1,3 +1,3 @@
-class UserAuths::PasswordsController < Devise::RegistrationsController
+class UserAuths::PasswordsController < Devise::PasswordsController
 
 end

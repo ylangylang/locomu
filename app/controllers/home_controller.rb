@@ -1,14 +1,9 @@
 class HomeController < ApplicationController
+  include UserAuths
+
   def index
-    if user_auth_signed_in?
-      if current_user.has_status?(:provisional)
-        redirect_to edit_profile_users_url
-        #redirect_to controller:'users', action:'edit_profile'
-      else
-        redirect_to controller:'users', action:'index'
-      end
-    else
-      redirect_to controller:'user_auths/registrations', action:'new'
+    if not user_auth_signed_in?
+      redirect_to controller:'user_auths/sessions', action:'new'
     end
   end
 end

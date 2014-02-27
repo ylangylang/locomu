@@ -1,3 +1,3 @@
-class UserAuths::SessionsController < Devise::RegistrationsController
+class UserAuths::SessionsController < Devise::SessionsController
 
 end
