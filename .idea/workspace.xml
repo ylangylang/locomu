@@ -26,15 +26,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_header.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/shared/_header.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="24" selection-start="815" selection-end="815" vertical-scroll-proportion="-4.423077" vertical-offset="225" max-vertical-offset="884">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -80,10 +71,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registrations_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="20140223143105_devise_create_user_auths.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140223143105_devise_create_user_auths.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="0" selection-start="344" selection-end="344" vertical-scroll-proportion="0.51829267" vertical-offset="0" max-vertical-offset="867">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20140223134613_create_users.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140223134613_create_users.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="42" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="459">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registrations_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/user_auths/registrations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="103" selection-end="103" vertical-scroll-proportion="0.1954023" vertical-offset="0" max-vertical-offset="595">
+            <state line="8" column="22" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
@@ -107,15 +116,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="10" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -133,7 +133,6 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/vendor/assets/stylesheets/bootstrap.scss" />
         <option value="$PROJECT_DIR$/vendor/assets/stylesheets/bootstrap/bootstrap.scss" />
-        <option value="$PROJECT_DIR$/db/migrate/20140223143105_devise_create_user_auths.rb" />
         <option value="$PROJECT_DIR$/app/models/user_auth.rb" />
         <option value="$PROJECT_DIR$/app/views/user_auth/registrations/_sign_up.html.erb" />
         <option value="$PROJECT_DIR$/app/views/user_auth/registrations/new.html.erb" />
@@ -163,7 +162,6 @@
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/users/_form.html.erb" />
         <option value="C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/devise-3.2.2/app/controllers/devise/registrations_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/user_auths/registrations_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140223134613_create_users.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/controllers/user_auths/sessions_controller.rb" />
@@ -171,6 +169,8 @@
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_auth_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/user_auths/registrations_controller.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20140223143105_devise_create_user_auths.rb" />
       </list>
     </option>
   </component>
@@ -886,13 +886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140223143105_devise_create_user_auths.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user_auth.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="453">
@@ -952,13 +945,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/user_auths/sessions/_sign_in.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="38" selection-start="744" selection-end="744" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140223134613_create_users.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="42" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="459">
           <folding />
         </state>
       </provider>
@@ -1033,6 +1019,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/user_auths/registrations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="22" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/user_auths/sessions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="66" selection-end="66" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
@@ -1040,9 +1033,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/user_auths/registrations_controller.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140223134613_create_users.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="103" selection-end="103" vertical-scroll-proportion="0.1954023" vertical-offset="0" max-vertical-offset="595">
+        <state line="15" column="42" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140223143105_devise_create_user_auths.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="344" selection-end="344" vertical-scroll-proportion="0.51829267" vertical-offset="0" max-vertical-offset="867">
           <folding />
         </state>
       </provider>

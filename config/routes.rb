@@ -1,4 +1,6 @@
 LocomuA::Application.routes.draw do
+  resources :user_photos
+
   get "home/index"
   devise_for :user_auths, controllers: {
       registrations: "user_auths/registrations",

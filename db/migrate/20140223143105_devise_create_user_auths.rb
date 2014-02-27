@@ -5,8 +5,8 @@ class DeviseCreateUserAuths < ActiveRecord::Migration
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
 
-      # Users‚Æ‚ÌŠÖ˜A‚ð’Ç‰Á
-      t.references :user       # V‹K“o˜^Žž‚Ì‚½‚ß‚Énull‚ð‹–‰Â‚·‚é
+      # Usersã®å¤–éƒ¨ã‚­ãƒ¼
+      t.references :user,           :null => false
 
       ## Recoverable
       t.string   :reset_password_token

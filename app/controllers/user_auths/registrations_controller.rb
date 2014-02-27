@@ -6,10 +6,11 @@ class UserAuths::RegistrationsController < Devise::RegistrationsController
     user.set_status(:provisional)
     user.save
 
-    build_resource(sign_up_params)
     # 外部キー(user_id)の登録
+    build_resource(sign_up_params)
     resource.user_id = user.id
 
+    # 以下superクラスより複製
     if resource.save
       yield resource if block_given?
       if resource.active_for_authentication?

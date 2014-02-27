@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_photo_id: 1
+  image: 
+  image_size: 1
+  image_width: 1
+  image_height: 1
+  thumb: 
+  thumb_size: 1
+  thumb_width: 1
+  thumb_height: 1
+  icon: 
+  icon_size: 1
+  icon_width: 1
+  icon_height: 1
+
+two:
+  user_photo_id: 1
+  image: 
+  image_size: 1
+  image_width: 1
+  image_height: 1
+  thumb: 
+  thumb_size: 1
+  thumb_width: 1
+  thumb_height: 1
+  icon: 
+  icon_size: 1
+  icon_width: 1
+  icon_height: 1
