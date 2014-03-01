@@ -11,15 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223143105) do
+ActiveRecord::Schema.define(version: 20140227074623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "photo_images", force: true do |t|
+    t.integer  "user_photo_id",             null: false
+    t.binary   "image"
+    t.integer  "image_size",    default: 0, null: false
+    t.integer  "image_width",   default: 0, null: false
+    t.integer  "image_height",  default: 0, null: false
+    t.binary   "thumb"
+    t.integer  "thumb_size",    default: 0, null: false
+    t.integer  "thumb_width",   default: 0, null: false
+    t.integer  "thumb_height",  default: 0, null: false
+    t.binary   "icon"
+    t.integer  "icon_size",     default: 0, null: false
+    t.integer  "icon_width",    default: 0, null: false
+    t.integer  "icon_height",   default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_auths", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
-    t.integer  "user_id"
+    t.integer  "user_id",                             null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -34,6 +52,17 @@ ActiveRecord::Schema.define(version: 20140223143105) do
 
   add_index "user_auths", ["email"], name: "index_user_auths_on_email", unique: true, using: :btree
   add_index "user_auths", ["reset_password_token"], name: "index_user_auths_on_reset_password_token", unique: true, using: :btree
+
+  create_table "user_photos", force: true do |t|
+    t.integer  "user_id",                   null: false
+    t.string   "file_name",    default: "", null: false
+    t.string   "content_type", default: "", null: false
+    t.string   "title"
+    t.string   "comment"
+    t.integer  "total_size",   default: 0,  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "first_name",        limit: 20, default: "",    null: false

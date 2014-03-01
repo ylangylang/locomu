@@ -1,5 +1,7 @@
+@import "bootstrap";
+
 div#shared-title {
-  border-bottom: 1em solid #fff;
+  border-bottom: 0.2em solid $gray-lighter;
   background-color: #eee;
 
   .container {

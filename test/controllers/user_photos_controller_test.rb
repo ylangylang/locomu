@@ -18,7 +18,7 @@ class UserPhotosControllerTest < ActionController::TestCase
 
   test "should create user_photo" do
     assert_difference('UserPhoto.count') do
-      post :create, user_photo: { comment: @user_photo.comment, content_type: @user_photo.content_type, title: @user_photo.title, user_id: @user_photo.user_id }
+      post :create, user_photo: { comment: @user_photo.comment, content_type: @user_photo.content_type, file_name: @user_photo.file_name, title: @user_photo.title, user_id: @user_photo.user_id }
     end
 
     assert_redirected_to user_photo_path(assigns(:user_photo))
@@ -35,7 +35,7 @@ class UserPhotosControllerTest < ActionController::TestCase
   end
 
   test "should update user_photo" do
-    patch :update, id: @user_photo, user_photo: { comment: @user_photo.comment, content_type: @user_photo.content_type, title: @user_photo.title, user_id: @user_photo.user_id }
+    patch :update, id: @user_photo, user_photo: { comment: @user_photo.comment, content_type: @user_photo.content_type, file_name: @user_photo.file_name, title: @user_photo.title, user_id: @user_photo.user_id }
     assert_redirected_to user_photo_path(assigns(:user_photo))
   end
 

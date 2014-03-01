@@ -39,8 +39,8 @@
       </div>
     </div>
     <div class="ui blue inverted sub menu">
-      <a class="item">List</a>
-      <a class="item">Upload</a>
+      <%= link_to "List", user_photos_path, method: :get, class:"item" %>
+      <%= link_to "Upload", new_user_photo_path, method: :get, class:"item" %>
     </div>
   </div>
 </div>

@@ -1,33 +1,40 @@
-<h1>Listing user_photos</h1>
+<h3>Locomu's Photo Albam</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Content type</th>
-      <th>Comment</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<ul class="nav nav-tabs">
+  <li><a href="#home" data-toggle="tab">Home</a></li>
+  <li><a href="#profile" data-toggle="tab">Profile</a></li>
+  <li><a href="#messages" data-toggle="tab">Messages</a></li>
+  <li><a href="#settings" data-toggle="tab">Settings</a></li>
+</ul>
 
-  <tbody>
-    <% @user_photos.each do |user_photo| %>
-      <tr>
-        <td><%= user_photo.user_id %></td>
-        <td><%= user_photo.title %></td>
-        <td><%= user_photo.content_type %></td>
-        <td><%= user_photo.comment %></td>
-        <td><%= link_to 'Show', user_photo %></td>
-        <td><%= link_to 'Edit', edit_user_photo_path(user_photo) %></td>
-        <td><%= link_to 'Destroy', user_photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= link_to  new_user_photo_path, class:"btn btn-default" do %>
+    <%= content_tag(:span, "", class:"glyphicon glyphicon-upload") %>
+    Upload Photo
+<% end %>
 
-<br>
+<a href="#" data-toggle="tooltip" title="first tooltip">Hover over me</a>
 
-<%= link_to 'New User photo', new_user_photo_path %>
+<div class="row">
+  <% @user_photos.each do |user_photo| %>
+	<% @user_photo = user_photo %>
+	<div class="col-xs-4 col-md-2">
+		<div id="photo-detail" class="thumbnail" data-toggle="tooltip" title=<%=user_photo.title%>>
+            <%= link_to(
+                user_thumb_link_tag(user_photo, size:'130x130'),
+                show_partial_user_photo_path(user_photo),
+                {remote:true, "data-toggle"=>"modal", "data-target"=> "#show_photo"} )
+            %>
+            <p class="well well-sm"><%= user_photo.title %></p>
+            <p>size:<%= number_to_human_size(user_photo.photo_image.image_size) %></p>
+            <p>type:<%= user_photo.content_type %></p>
+            <%= link_to '編集', edit_user_photo_path(user_photo), "type"=>"button", "class"=>"btn btn-info btn-sm" %>
+            <%= link_to '削除', user_photo, "type"=>"button", "class"=>"btn btn-info btn-sm",
+                   method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+    </div>
+  <% end %>
+</div> <%#  row %>
+
+  <div id="show_photo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <% #render photo image.. %>
+  </div>

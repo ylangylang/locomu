@@ -27,6 +27,15 @@ LocomuA::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  resources :user_photos do
+    member do
+      get 'get_image'
+      get 'get_thumb'
+      get 'get_icon'
+      get 'download_image'
+      get 'show_partial'
+    end
+  end
 
   # Example resource route with sub-resources:
   #   resources :products do

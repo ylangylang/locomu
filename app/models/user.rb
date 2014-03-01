@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_one :user_auth
+  has_one :user_auth, dependent: :destroy
+  has_many :user_photo
 
   STATUS = {
       inactive: 0,      # インアクティブ

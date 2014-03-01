@@ -7,13 +7,17 @@ html {
 
 body {
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  background: $gray-lighter;
+  background-color: $gray-lighter;
   margin: 0px;
   padding: 0px;
   color: #555555;
   text-rendering: optimizeLegibility;
   min-width: 320px;
   overflow-x: hidden;
+
+  #application {
+    background-color: #F7F7F7;
+  }
 }
 
 p, ol, ul, td {

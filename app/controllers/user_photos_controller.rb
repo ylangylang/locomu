@@ -1,5 +1,5 @@
-class UserPhotosController < ApplicationController
-  before_action :set_user_photo, only: [:show, :edit, :update, :destroy]
+class UserPhotosController < ApplicationAuthController
+  before_action :set_user_photo, only: [:show, :show_partial, :edit, :update, :destroy]
 
   # GET /user_photos
   # GET /user_photos.json
@@ -12,9 +12,16 @@ class UserPhotosController < ApplicationController
   def show
   end
 
+  def show_partial
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /user_photos/new
   def new
     @user_photo = UserPhoto.new
+    @user_photo.build_photo_image
   end
 
   # GET /user_photos/1/edit
@@ -25,6 +32,10 @@ class UserPhotosController < ApplicationController
   # POST /user_photos.json
   def create
     @user_photo = UserPhoto.new(user_photo_params)
+    @user_photo.user_id = current_user.id
+
+    @user_photo.build_photo_image
+    @user_photo.photo_image.uploaded_image = @user_photo.temp_image
 
     respond_to do |format|
       if @user_photo.save
@@ -60,6 +71,26 @@ class UserPhotosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_image
+    @user_photo = UserPhoto.find params[:id]
+    send_data(@user_photo.photo_image.image, type:@user_photo.content_type, disposition: "inline")
+  end
+
+  def download_image
+    @user_photo = UserPhoto.find params[:id]
+    send_data(@user_photo.photo_image.image, type:@user_photo.content_type, disposition: "attachment")
+  end
+
+  def get_thumb
+    @user_photo = UserPhoto.find params[:id]
+    send_data(@user_photo.photo_image.thumb, type:@user_photo.content_type, disposition: "inline")
+  end
+
+  def get_icon
+    @user_photo = UserPhoto.find params[:id]
+    send_data(@user_photo.photo_image.icon, type:@user_photo.content_type, disposition: "inline")
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,6 +100,7 @@ class UserPhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_photo_params
-      params.require(:user_photo).permit(:user_id, :title, :content_type, :comment)
+      params.require(:user_photo).permit(:user_id, :file_name, :title, :content_type, :comment, :uploaded_image,
+                                         photo_image_attributes: [:uploaded_image])
     end
 end

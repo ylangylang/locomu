@@ -1,24 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @user_photo.user_id %>
-</p>
-
-<p>
   <strong>Title:</strong>
   <%= @user_photo.title %>
 </p>
 
-<p>
-  <strong>Content type:</strong>
-  <%= @user_photo.content_type %>
-</p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @user_photo.comment %>
-</p>
 
 <%= link_to 'Edit', edit_user_photo_path(@user_photo) %> |
 <%= link_to 'Back', user_photos_path %>

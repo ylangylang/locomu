@@ -2,12 +2,14 @@
 
 one:
   user_id: 1
+  file_name: MyString
   title: MyString
   content_type: MyString
   comment: MyString
 
 two:
   user_id: 1
+  file_name: MyString
   title: MyString
   content_type: MyString
   comment: MyString
