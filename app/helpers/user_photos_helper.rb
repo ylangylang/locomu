@@ -34,7 +34,7 @@ module UserPhotosHelper
     if user_photo.photo_image.image.present?
       image_tag(
           url_for(action: 'get_thumb', id: user_photo.id),
-          { alt: user_photo.comment }.merge(options)
+          { 'data-content'=> user_photo.comment }.merge(options)
       )
     else
       ""

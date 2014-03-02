@@ -1,40 +1,27 @@
-<h3>Locomu's Photo Albam</h3>
+<div id="user_photo_index">
+  <%= paginate(@user_photos) %>
 
-<ul class="nav nav-tabs">
-  <li><a href="#home" data-toggle="tab">Home</a></li>
-  <li><a href="#profile" data-toggle="tab">Profile</a></li>
-  <li><a href="#messages" data-toggle="tab">Messages</a></li>
-  <li><a href="#settings" data-toggle="tab">Settings</a></li>
-</ul>
-
-<%= link_to  new_user_photo_path, class:"btn btn-default" do %>
-    <%= content_tag(:span, "", class:"glyphicon glyphicon-upload") %>
-    Upload Photo
-<% end %>
-
-<a href="#" data-toggle="tooltip" title="first tooltip">Hover over me</a>
-
-<div class="row">
-  <% @user_photos.each do |user_photo| %>
-	<% @user_photo = user_photo %>
-	<div class="col-xs-4 col-md-2">
-		<div id="photo-detail" class="thumbnail" data-toggle="tooltip" title=<%=user_photo.title%>>
-            <%= link_to(
-                user_thumb_link_tag(user_photo, size:'130x130'),
-                show_partial_user_photo_path(user_photo),
-                {remote:true, "data-toggle"=>"modal", "data-target"=> "#show_photo"} )
-            %>
-            <p class="well well-sm"><%= user_photo.title %></p>
-            <p>size:<%= number_to_human_size(user_photo.photo_image.image_size) %></p>
-            <p>type:<%= user_photo.content_type %></p>
-            <%= link_to '編集', edit_user_photo_path(user_photo), "type"=>"button", "class"=>"btn btn-info btn-sm" %>
-            <%= link_to '削除', user_photo, "type"=>"button", "class"=>"btn btn-info btn-sm",
-                   method: :delete, data: { confirm: 'Are you sure?' } %>
+  <div class="ui five items">
+      <% @user_photos.each do |user_photo| %>
+      <div class="item">
+        <div class="image user_photo" data-content=<%= user_photo.comment %>>
+            <%= user_thumb_link_tag(user_photo) %>
         </div>
+        <div class="content">
+          <div class="name"><%=user_photo.title%></div>
+          <%= link_to '編集', edit_user_photo_path(user_photo), "type"=>"button", "class"=>"btn btn-info btn-sm" %>
+          <%= link_to '削除', user_photo, "type"=>"button", "class"=>"btn btn-info btn-sm",
+                      method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+      <% end %>
     </div>
-  <% end %>
-</div> <%#  row %>
+
+  <nav>
+    <%= paginate(@user_photos) %>
+  </nav>
 
   <div id="show_photo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <% #render photo image.. %>
   </div>
+</div>

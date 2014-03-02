@@ -4,7 +4,8 @@ class UserPhotosController < ApplicationAuthController
   # GET /user_photos
   # GET /user_photos.json
   def index
-    @user_photos = UserPhoto.all
+   # @user_photos = UserPhoto.order(:created_at).page params[:page]
+    @user_photos = UserPhoto.page(params[:page]).order('created_at DESC')
   end
 
   # GET /user_photos/1

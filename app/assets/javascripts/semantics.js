@@ -19,5 +19,12 @@ $(document)
     $('.ui.checkbox')
         .checkbox()
     ;
+
+    $('.image.user_photo')
+        .popup({
+            inline: true,
+            position : 'top center'
+        })
+    ;
 })
 ;

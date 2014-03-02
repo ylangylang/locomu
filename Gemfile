@@ -31,13 +31,16 @@ gem 'jbuilder', '~> 1.2'
 gem 'semantic-ui-sass', '~> 0.12.5.0'
 
 # use compass
-gem 'compass-rails'
+gem 'compass-rails', '~> 1.1.3'
 
 # use devise
 gem 'devise', '~> 3.2.2'
 
 # use mini_magick
-gem 'mini_magick'
+gem 'mini_magick', '~> 3.7.0'
+
+# use kaminari
+gem 'kaminari', '~> 0.15.1'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

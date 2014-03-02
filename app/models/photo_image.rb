@@ -3,7 +3,7 @@ class PhotoImage < ActiveRecord::Base
 
   attr_reader :uploaded_image
 
-  THUMB_SIZE = "550x700".freeze
+  THUMB_SIZE = "600x400".freeze
   ICON_SIZE = "80x80".freeze
 
 
@@ -18,12 +18,30 @@ class PhotoImage < ActiveRecord::Base
     self.icon_size = self.icon.size
   end
 
+  ################################################################################################
+  # private
+  ################################################################################################
+  private
+
   def make_thumbnail(size)
     require 'mini_magick'
 
     thumb = MiniMagick::Image.read(self.image)
+    thumb = shave_image(thumb)
     thumb.resize(size)
     thumb.to_blob
+  end
+
+  def shave_image(target)
+    image = MiniMagick::Image.read(target)
+    if image[:width] < image[:height]
+      remove = ((image[:height] - image[:width])/2).round
+      image.shave("0x#{remove}")
+    elsif image[:width] > image[:height]
+      remove = ((image[:width] - image[:height])/2).round
+      image.shave("#{remove}x0")
+    end
+    return image
   end
 
 end
