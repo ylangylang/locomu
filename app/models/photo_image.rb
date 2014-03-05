@@ -3,7 +3,7 @@ class PhotoImage < ActiveRecord::Base
 
   attr_reader :uploaded_image
 
-  THUMB_SIZE = "600x400".freeze
+  THUMB_SIZE = "400x400".freeze
   ICON_SIZE = "80x80".freeze
 
 

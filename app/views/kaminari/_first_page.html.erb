@@ -6,6 +6,8 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<span class="first">
-  <%= link_to_unless current_page.first?, t('views.pagination.first').html_safe, url, :remote => remote %>
-</span>
+<% unless current_page.first? %>
+    <%= link_to url, remote: remote, class:"icon item" do %>
+        <i class="double angle left icon"></i>
+    <% end %>
+<% end %>

@@ -42,6 +42,9 @@ gem 'mini_magick', '~> 3.7.0'
 # use kaminari
 gem 'kaminari', '~> 0.15.1'
 
+# use jquery-ui
+gem 'jquery-ui-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

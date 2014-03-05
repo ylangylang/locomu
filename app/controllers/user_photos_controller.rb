@@ -8,6 +8,12 @@ class UserPhotosController < ApplicationAuthController
     @user_photos = UserPhoto.page(params[:page]).order('created_at DESC')
   end
 
+  def search
+#    @members = UserPhoto.search(params[:q]).page(params[:page]).order('created_at DESC')
+    @user_photos = UserPhoto.search(params[:q]).page(params[:page]).order('created_at DESC')
+    render action: 'index'
+  end
+
   # GET /user_photos/1
   # GET /user_photos/1.json
   def show

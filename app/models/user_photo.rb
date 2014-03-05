@@ -37,4 +37,14 @@ class UserPhoto < ActiveRecord::Base
     self.temp_image = image
   end
 
+  class << self
+    def search(query)
+      rel = all
+      if query.present?
+        rel = rel.where("to_char(created_at, 'MM/DD/YYYY') = ?", "#{query}")
+      end
+      rel
+    end
+  end
+
 end

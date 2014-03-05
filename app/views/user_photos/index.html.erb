@@ -1,9 +1,25 @@
-<div id="user_photo_index">
-  <%= paginate(@user_photos) %>
+<div id="user_photos_index">
+  <div class="ui fluid grid">
+      <div class="ui text menu ten wide column">
+        <div class="active header item">filter:</div>
+        <%= form_tag :search_user_photos, method: :get, class: "field item" do %>
+          <i class="calendar icon"></i> Date
+          <%= text_field_tag "q", params[:q], id:"datepicker", class:"ui input item" %>
+          <%= submit_tag "検索" %></p>
+        <% end %>
+        <a class="item">
+          <i class="user icon"></i> User
+        </a>
+      </div>
+
+    <div class="right floated six wide column">
+      <%= paginate(@user_photos) %>
+    </div>
+   </div>
 
   <div class="ui five items">
       <% @user_photos.each do |user_photo| %>
-      <div class="item">
+      <div id="images" class="item">
         <div class="image user_photo" data-content=<%= user_photo.comment %>>
             <%= user_thumb_link_tag(user_photo) %>
         </div>

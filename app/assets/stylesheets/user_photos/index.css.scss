@@ -1,0 +1,28 @@
+@import "style";
+
+#user_photos_index {
+  margin-left: 2%;
+
+  .popup {
+    color: $color-success;
+  }
+
+  #datepicker {
+    width: 8em;
+    background-color: #F9F9FB;
+    box-shadow: 0 2px 1px rgba(0,0,0,0.06) inset;
+
+    border: 1px solid #AED4EC;
+    border-radius: 3px;
+
+    display: inline;
+    vertical-align: middle;
+  }
+  
+  #images.item {
+    //margin: 0em, 0em, 1em, 0em;
+    margin: 0em;
+    margin-bottom: 1em;
+    min-height: 8em;
+  }
+}

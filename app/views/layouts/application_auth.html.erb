@@ -14,21 +14,15 @@
 </head>
 <body id="application">
 
-<section class="content">
+<div class="content">
     <%= render '/shared/header' %>
 
     <div class="ui fluid grid">
-      <div class="one wide column">
-      </div>
-      <div class="thirteen wide column">
-        <section class="main">
-            <%= yield %>
-        </section>
-      </div>
-      <div class="two wide column">
+      <section id="main" class="fourteen wide column">
+        <%= yield %>
+      </section>
+      <section id="advertise" class="two wide column">
         <%= render '/shared/advertise'%>
-      </div>
+      </section>
     </div>
-</section>
-</body>
-</html>
+</div>

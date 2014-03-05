@@ -1,22 +1,24 @@
 LocomuA::Application.routes.draw do
-  resources :user_photos
 
-  get "home/index"
   devise_for :user_auths, controllers: {
       registrations: "user_auths/registrations",
       sessions: "user_auths/sessions",
       passwords: "user_auths/passwords"
   }
+
+  root "home#index"
+
   resources :users do
     collection do
       get 'edit_profile'
     end
   end
 
-  root "home#index"
-
   resources :user_photos do
-    get 'page/:page', :action => :index, :on => :collection
+    collection do
+      get 'page/:page', :action => :index
+      get 'search'
+    end
 
     member do
       get 'get_image'
