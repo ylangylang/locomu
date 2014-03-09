@@ -1,4 +1,5 @@
 <div id="user_photos_index">
+
   <div class="ui fluid grid">
       <div class="ui text menu ten wide column">
         <div class="active header item">filter:</div>
@@ -20,11 +21,14 @@
   <div class="ui five items">
       <% @user_photos.each do |user_photo| %>
       <div id="images" class="item">
-        <div class="image user_photo" data-content=<%= user_photo.comment %>>
-            <%= user_thumb_link_tag(user_photo) %>
-        </div>
+        <%= link_to show_modal_user_photo_path(user_photo),
+                    remote:true,
+                    class:"image user_photo link", 'data-content'=> user_photo.comment do%>
+
+            <%= user_thumb_tag(user_photo) %>
+        <% end %>
         <div class="content">
-          <div class="name"><%=user_photo.title%></div>
+          <%= user_photo.summary %>
           <%= link_to '編集', edit_user_photo_path(user_photo), "type"=>"button", "class"=>"btn btn-info btn-sm" %>
           <%= link_to '削除', user_photo, "type"=>"button", "class"=>"btn btn-info btn-sm",
                       method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -36,8 +40,8 @@
   <nav>
     <%= paginate(@user_photos) %>
   </nav>
+</div>
 
-  <div id="show_photo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <% #render photo image.. %>
-  </div>
+<div id="user_photos_show_user_photo" class="ui user_photo modal">
+    <%# render 'show_user_photo' %>
 </div>

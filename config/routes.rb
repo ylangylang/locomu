@@ -25,7 +25,7 @@ LocomuA::Application.routes.draw do
       get 'get_thumb'
       get 'get_icon'
       get 'download_image'
-      get 'show_partial'
+      get 'show_modal'
     end
 
     collection do

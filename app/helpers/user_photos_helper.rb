@@ -1,7 +1,7 @@
 module UserPhotosHelper
 
   def user_image_link_tag(photo, options = {})
-    if photo.image.present?
+    if photo.photo_image.image.present?
       path = user_photo_path(photo, format:photo.extension)
       link_to(image_tag(
                   url_for(action: 'get_image', id: photo.id),
@@ -15,16 +15,16 @@ module UserPhotosHelper
   end
 
   def user_image_tag(photo)
-    if photo.image.present?
+    if photo.photo_image.image.present?
       image_tag(url_for(action: 'get_image', id: photo.id))
     else
       ""
     end
   end
 
-  def user_thumb_tag(photo)
-    if photo.image.present?
-      image_tag(url_for(action: 'get_thumb', id: photo.id))
+  def user_thumb_tag(user_photo, options = {})
+    if user_photo.photo_image.image.present?
+      image_tag(url_for(action: 'get_thumb', id: user_photo.id), options)
     else
       ""
     end
@@ -43,7 +43,7 @@ module UserPhotosHelper
 
   # @return [Object]
   def user_photo_download_tag(photo)
-    if photo.image.present?
+    if photo.photo_image.image.present?
       url_for(action: 'get_thumb', id: photo.id)
     else
       ""

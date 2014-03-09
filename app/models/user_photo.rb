@@ -25,6 +25,11 @@ class UserPhoto < ActiveRecord::Base
     end
   end
 
+  def summary
+    summary = (self.title.empty?) ? 'Untitled' : self.title
+    return (summary + ' by ' + User.find(user_id).full_name)
+  end
+
   def extension
     IMAGE_TYPES[content_type]
   end

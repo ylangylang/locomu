@@ -1,5 +1,5 @@
 class UserPhotosController < ApplicationAuthController
-  before_action :set_user_photo, only: [:show, :show_partial, :edit, :update, :destroy]
+  before_action :set_user_photo, only: [:show, :show_modal, :edit, :update, :destroy]
 
   # GET /user_photos
   # GET /user_photos.json
@@ -19,7 +19,7 @@ class UserPhotosController < ApplicationAuthController
   def show
   end
 
-  def show_partial
+  def show_modal
     respond_to do |format|
       format.js
     end

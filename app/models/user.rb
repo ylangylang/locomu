@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   # フルネーム(姓＋名)
   def full_name
-    self.last_name.concat(self.first_name)
+    self.last_name + self.first_name
   end
 
   def has_status?(val)

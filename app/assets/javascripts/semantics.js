@@ -26,5 +26,6 @@ $(document)
             position : 'top center'
         })
     ;
-})
+
+    })
 ;
