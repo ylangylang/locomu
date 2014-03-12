@@ -1,0 +1,37 @@
+#user_photos_show_user_photo {
+  height: 95%;
+
+  .modal-content {
+    height: 100%;
+
+    .modal-header {
+      height: 5%;
+      margin: 0em;
+      padding: 0em 0em 0em 1em;
+      min-height: 0em;
+    }
+
+    .modal-body {
+      display: table;
+      width: 100%;
+      height: 80%;
+      padding: 1em;
+      background-color: #F4F4F4;
+      box-sizing: border-box;
+
+      .image {
+        height: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .comment {
+        overflow: auto;
+        overflow-y: scroll;
+        font-size: 1em;
+      }
+    }
+    .modal-footer {
+      height: 15%
+    }
+  }
+}

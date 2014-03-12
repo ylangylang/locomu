@@ -14,9 +14,9 @@ module UserPhotosHelper
     end
   end
 
-  def user_image_tag(photo)
+  def user_image_tag(photo, options = {})
     if photo.photo_image.image.present?
-      image_tag(url_for(action: 'get_image', id: photo.id))
+      image_tag(url_for(action: 'get_image', id: photo.id), options)
     else
       ""
     end
@@ -44,7 +44,7 @@ module UserPhotosHelper
   # @return [Object]
   def user_photo_download_tag(photo)
     if photo.photo_image.image.present?
-      url_for(action: 'get_thumb', id: photo.id)
+      url_for(action: 'get_image', id: photo.id)
     else
       ""
     end

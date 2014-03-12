@@ -1,8 +1,3 @@
-$('#user_photos_show_user_photo').html("<%=j render partial: 'show_user_photo' %>")
-$('.user_photo.modal')
-        .modal('setting', 'closable', false)
-        .modal('setting', 'transition', 'slide down')
-        .modal('setting', 'detachable', false)
-        .modal('refresh')
-        .modal('show')
+$('#user_photos_index_modal').html("<%=j render partial: 'show_user_photo' %>")
+$('#user_photos_index_modal').modal('show')
 ;

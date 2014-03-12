@@ -25,8 +25,13 @@ class UserPhoto < ActiveRecord::Base
     end
   end
 
+  def disp_title
+    disp_title = (self.title.empty?) ? 'Untitled' : self.title
+    disp_title
+  end
+
   def summary
-    summary = (self.title.empty?) ? 'Untitled' : self.title
+    summary = self.disp_title
     return (summary + ' by ' + User.find(user_id).full_name)
   end
 

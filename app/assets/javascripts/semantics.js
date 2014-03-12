@@ -27,5 +27,10 @@ $(document)
         })
     ;
 
+    $('.user_photo.modal')
+        .transition('attach events', '.cancel.button', 'fade up')
+    ;
+
+
     })
 ;

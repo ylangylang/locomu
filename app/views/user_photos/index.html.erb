@@ -20,7 +20,7 @@
 
   <div class="ui five items">
       <% @user_photos.each do |user_photo| %>
-      <div id="images" class="item">
+      <div id="images" class="item" data-toggle="modal" data-target="#user_photos_show_user_photo">
         <%= link_to show_modal_user_photo_path(user_photo),
                     remote:true,
                     class:"image user_photo link", 'data-content'=> user_photo.comment do%>
@@ -42,6 +42,6 @@
   </nav>
 </div>
 
-<div id="user_photos_show_user_photo" class="ui user_photo modal">
+<div id="user_photos_index_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <%# render 'show_user_photo' %>
 </div>
