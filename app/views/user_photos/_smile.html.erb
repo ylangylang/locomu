@@ -1,0 +1,13 @@
+<% if User.find_by_id(current_user_auth.user_id).pointable_for?(@user_photo) %>
+<button class="ui teal left labeled icon button" id="smile">
+  Smile +
+  <i class="smile icon"></i>
+  <div class="floating ui red label"><%= @user_photo.all_points %></div>
+</button>
+<% else %>
+    <button class="ui basic left labeled icon button" id="smile">
+      Smile +
+      <i class="large teal smile icon"></i>
+      <div class="floating ui red label"><%= @user_photo.all_points %></div>
+    </button>
+<% end %>

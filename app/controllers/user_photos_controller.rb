@@ -1,5 +1,5 @@
 class UserPhotosController < ApplicationAuthController
-  before_action :set_user_photo, only: [:show, :show_modal, :edit, :update, :destroy]
+  before_action :set_user_photo, only: [:show, :show_modal, :edit, :update, :add_point, :destroy]
 
   # GET /user_photos
   # GET /user_photos.json
@@ -20,6 +20,15 @@ class UserPhotosController < ApplicationAuthController
   end
 
   def show_modal
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def add_point
+    point = @user_photo.points.find(user_id: current_user.id)
+    point.add_point!    #TODO:戻り値の確認は必要ないか
+
     respond_to do |format|
       format.js
     end

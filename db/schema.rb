@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227074623) do
+ActiveRecord::Schema.define(version: 20140312230147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20140227074623) do
     t.integer  "icon_size",     default: 0, null: false
     t.integer  "icon_width",    default: 0, null: false
     t.integer  "icon_height",   default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "points", force: true do |t|
+    t.integer  "user_id",                   null: false
+    t.integer  "user_photo_id",             null: false
+    t.integer  "value",         default: 0, null: false
+    t.integer  "color"
+    t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

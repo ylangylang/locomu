@@ -1,5 +1,5 @@
 #user_photos_show_user_photo {
-  height: 95%;
+  height: 93%;
 
   .modal-content {
     height: 100%;
@@ -25,13 +25,25 @@
         margin-right: auto;
       }
       .comment {
+        padding: 0em 2em;
         overflow: auto;
         overflow-y: scroll;
         font-size: 1em;
       }
     }
     .modal-footer {
-      height: 15%
+      padding: 1em 2em;
+      height: 15%;
+      margin-top: 0.2em;
+
+      #smile {
+        text-align: left;
+        float: left;
+      }
+
+      #action {
+        text-align: right;
+      }
     }
   }
 }

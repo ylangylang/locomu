@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @point.user_id %>
+</p>
+
+<p>
+  <strong>User photo:</strong>
+  <%= @point.user_photo_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @point.value %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @point.color %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @point.comment %>
+</p>
+
+<%= link_to 'Edit', edit_point_path(@point) %> |
+<%= link_to 'Back', points_path %>

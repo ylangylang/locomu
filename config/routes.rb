@@ -26,11 +26,14 @@ LocomuA::Application.routes.draw do
       get 'get_icon'
       get 'download_image'
       get 'show_modal'
+      get 'add_point'
     end
 
     collection do
     end
   end
+
+  resources :points
 
   # Example resource route with sub-resources:
   #   resources :products do

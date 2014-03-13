@@ -1,11 +1,14 @@
 class UserPhoto < ActiveRecord::Base
   has_one :photo_image, dependent: :destroy
   belongs_to :user
+  has_many :points
+  has_many :markers, through: :points, source: :user
 
   accepts_nested_attributes_for :photo_image, allow_destroy: true
 
   attr_accessor :temp_image
   attr_reader :uploaded_image
+  #attr_accessible :user_ids
 
   IMAGE_TYPES = {
       "image/jpeg" => "jpg",
@@ -45,6 +48,19 @@ class UserPhoto < ActiveRecord::Base
 
     # DB登録対象外
     self.temp_image = image
+  end
+
+  def all_points
+    self.points.sum('value')
+  end
+
+  def point_upper_limit?(user_id)
+    point = self.points.where(user_id: user_id).first
+    if point.present?
+      point.is_upper_limit?
+    else
+      false
+    end
   end
 
   class << self

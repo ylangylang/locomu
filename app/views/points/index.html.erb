@@ -1,0 +1,35 @@
+<h1>Listing points</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>User photo</th>
+      <th>Value</th>
+      <th>Color</th>
+      <th>Comment</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @points.each do |point| %>
+      <tr>
+        <td><%= point.user_id %></td>
+        <td><%= point.user_photo_id %></td>
+        <td><%= point.value %></td>
+        <td><%= point.color %></td>
+        <td><%= point.comment %></td>
+        <td><%= link_to 'Show', point %></td>
+        <td><%= link_to 'Edit', edit_point_path(point) %></td>
+        <td><%= link_to 'Destroy', point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Point', new_point_path %>

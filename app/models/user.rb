@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_one :user_auth, dependent: :destroy
   has_many :user_photo
+  has_many :points
+  has_many :pointed_photos, through: :points, source: :user_photo
 
   STATUS = {
       inactive: 0,      # インアクティブ
@@ -20,6 +22,10 @@ class User < ActiveRecord::Base
 
   def set_status(val)
     self.status = STATUS[val]
+  end
+
+  def pointable_for?(user_photo)
+    return (user_photo.user_id != self.id && !user_photo.point_upper_limit?(self.id))
   end
 
 end

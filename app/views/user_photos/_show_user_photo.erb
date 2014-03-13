@@ -5,29 +5,22 @@
       <h2><%=@user_photo.disp_title%></h2>
     </div>
     <div class="modal-body">
-        <%= user_image_tag(@user_photo, class:"ui big image") %>
+        <%= user_image_tag(@user_photo, class:"rounded ui big image") %>
         <div class="comment"><%= @user_photo.comment %></div>
     </div>
     <div class="modal-footer">
-      <a class="ui left large red circular label">
-        <i class="smile icon"></i> 23
-      </a>
-      <a class="item">
-        <i class="icon mail"></i> Messages
-        <div class="floating ui red label">22</div>
-      </a>
-      <button class="btn ui teal left labeled icon button">
-        Smile !
-        <i class="smile icon"></i>
-        <div class="floating ui red label">+888</div>
-      </button>
-      <button class="btn ui black cancel button" type="button" data-dismiss="modal">
-        Cancel
-      </button>
-      <%= link_to({action: 'download_image', id: @user_photo.id}, class:"ui green right labeled icon button") do %>
-          Download
-          <i class="download disk icon"></i>
-      <% end %>
+      <div id="smile">
+        <%= render 'smile' %>
+      </div>
+      <div id="action">
+          <button class="btn ui black cancel button" type="button" data-dismiss="modal">
+            Cancel
+          </button>
+          <%= link_to({action: 'download_image', id: @user_photo.id}, class:"btn ui green right labeled icon button") do %>
+              Download
+              <i class="download disk icon"></i>
+          <% end %>
+      </div>
     </div>
   </div>
 </div>
