@@ -27,10 +27,9 @@
 
             <div class="ui image" id="image_content">
               <% if user_photo.all_points > 0 %>
-                  <div class="ui teal ribbon label">
-                    <i class="smile icon"></i>
-                    SMILE! <%= user_photo.all_points %>
-                  </div>
+                <div id="smile_ribbon-area">
+                <%= render 'smile_ribbon', user_photo: user_photo %>
+                </div>
               <% end %>
               <div id="user_thumb">
                 <%= user_thumb_tag(user_photo) %>

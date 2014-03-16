@@ -1,0 +1,9 @@
+<div id="user_photos_smile_ribbon" class="ui teal ribbon label">
+  <i class="smile icon"></i>
+  SMILE!
+  <% if @user_photo.present? %>
+    <%= @user_photo.all_points %>
+  <% else %>
+    <%= user_photo.all_points %>
+  <% end %>
+</div>
