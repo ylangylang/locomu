@@ -31,6 +31,5 @@ $(document)
         .transition('attach events', '.cancel.button', 'fade up')
     ;
 
-
     })
 ;

@@ -17,5 +17,4 @@ class ApplicationAuthController < ApplicationController
     redirect_to controller:'user_auths/registrations', action:'new'
   end
 
-
 end

@@ -1,4 +1,4 @@
-@import "style";
+@import "variables";
 
 #user_photos_index {
   margin-left: 2%;
@@ -25,4 +25,22 @@
     margin-bottom: 1em;
     min-height: 8em;
   }
+
+  .ui.ribbon.label {
+    position: absolute;
+    border: 0.15em solid $gray-lighter;
+    //top: 100%;
+  }
+
+  #image_content {
+    position: relative;
+  }
+
+  #user_thumb {
+    //position: absolute;
+//  top: 0em;
+//  width: 100%;
+//  min-height: 8em;
+  }
+
 }

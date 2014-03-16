@@ -54,6 +54,14 @@ class UserPhoto < ActiveRecord::Base
     self.points.sum('value')
   end
 
+  def all_points_label(user_id)
+    if self.point_upper_limit?(user_id)
+      'max! ' + self.all_points.to_s
+    else
+      self.all_points.to_s
+    end
+  end
+
   def point_upper_limit?(user_id)
     point = self.points.where(user_id: user_id).first
     if point.present?

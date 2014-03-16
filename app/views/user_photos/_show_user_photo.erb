@@ -5,12 +5,12 @@
       <h2><%=@user_photo.disp_title%></h2>
     </div>
     <div class="modal-body">
-        <%= user_image_tag(@user_photo, class:"rounded ui big image") %>
+        <%= user_image_tag(@user_photo, class:"rounded ui big image", id:"user_image") %>
         <div class="comment"><%= @user_photo.comment %></div>
     </div>
     <div class="modal-footer">
-      <div id="smile">
-        <%= render 'smile' %>
+      <div id="smile-area">
+        <%= render partial: 'smile' %>
       </div>
       <div id="action">
           <button class="btn ui black cancel button" type="button" data-dismiss="modal">

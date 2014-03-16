@@ -1,13 +1,18 @@
+<div id="user_photos_smile">
 <% if User.find_by_id(current_user_auth.user_id).pointable_for?(@user_photo) %>
-<button class="ui teal left labeled icon button" id="smile">
-  Smile +
-  <i class="smile icon"></i>
-  <div class="floating ui red label"><%= @user_photo.all_points %></div>
-</button>
+    <%= link_to add_point_user_photo_path(@user_photo),
+                remote:true,
+                class:"ui teal left labeled icon button", id:"smile" do%>
+        Smile +
+        <i class="smile icon"></i>
+        <div class="floating ui red label" id="smile_point_label"><%= @user_photo.all_points_label(current_user_auth.user_id) %></div>
+    <% end %>
+
 <% else %>
     <button class="ui basic left labeled icon button" id="smile">
       Smile +
       <i class="large teal smile icon"></i>
-      <div class="floating ui red label"><%= @user_photo.all_points %></div>
+      <div class="floating ui red label"><%= @user_photo.all_points_label(current_user_auth.user_id) %></div>
     </button>
 <% end %>
+</div>

@@ -1,4 +1,4 @@
-@import "bootstrap/_variables";
+@import "variables";
 
 div#shared-title {
   border-bottom: 0.2em solid $gray-lighter;
@@ -6,6 +6,6 @@ div#shared-title {
 
   .container {
     background-color: #fff;
-     width: auto;
+    width: auto;
    }
 }

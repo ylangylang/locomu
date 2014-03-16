@@ -1,4 +1,4 @@
-class PointsController < ApplicationController
+class PointsController < ApplicationAuthController
   before_action :set_point, only: [:show, :edit, :update, :destroy]
 
   # GET /points

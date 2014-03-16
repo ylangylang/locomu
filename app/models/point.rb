@@ -2,7 +2,7 @@ class Point < ActiveRecord::Base
   belongs_to :user
   belongs_to :user_photo
 
-  UPPER_LIMIT = 3.freeze
+  UPPER_LIMIT = 5.freeze
 
   validate do
   end
@@ -11,19 +11,17 @@ class Point < ActiveRecord::Base
     self.value >= UPPER_LIMIT
   end
 
-  def add_point!
-    if not is_upper_limit?
+  def add_point
+    if not self.is_upper_limit?
       self.value += 1
-      self.save
     else
       return false
     end
   end
 
-  def remove_point!
+  def remove_point
     if not self.value <= 0
-      self.value -= 1
-      self.save
+      @value -= 1
     else
       return false
     end

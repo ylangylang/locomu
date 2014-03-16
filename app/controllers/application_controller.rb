@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     user = current_user
     if user.has_status?(:provisional)
-      edit_profile_users_path
+      search_user_photos_path
     else
       users_path
     end

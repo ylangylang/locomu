@@ -6,6 +6,7 @@ class UserPhotosController < ApplicationAuthController
   def index
    # @user_photos = UserPhoto.order(:created_at).page params[:page]
     @user_photos = UserPhoto.page(params[:page]).order('created_at DESC')
+    @current_user = current_user
   end
 
   def search
@@ -26,8 +27,16 @@ class UserPhotosController < ApplicationAuthController
   end
 
   def add_point
-    point = @user_photo.points.find(user_id: current_user.id)
-    point.add_point!    #TODO:戻り値の確認は必要ないか
+    point = @user_photo.points.find_by(user_id: current_user.id)
+
+    if point.nil?
+      @user_photo.points.build(user_id: current_user.id, user_photo_id: @user_photo.id, value: 1)
+      @user_photo.save
+    else
+      if point.add_point
+        point.save
+      end
+    end
 
     respond_to do |format|
       format.js
