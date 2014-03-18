@@ -1,0 +1,12 @@
+#shared_flash {
+  p.inline {
+    display: inline
+  }
+
+  .ui.info.message {
+    border: 0.1em solid #6ECFF5;
+  }
+  .ui.info.warning {
+    border: 0.1em solid #F05940;
+  }
+}

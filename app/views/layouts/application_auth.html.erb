@@ -18,9 +18,12 @@
     <%= render '/shared/header' %>
 
     <div class="ui fluid grid">
-      <section id="main" class="fourteen wide column">
-        <%= yield %>
-      </section>
+      <div class="fourteen wide column">
+        <section id="main">
+          <%= render '/shared/flash' %>
+          <%= yield %>
+        </section>
+      </div>
       <section id="advertise" class="two wide column">
         <%= render '/shared/advertise'%>
       </section>

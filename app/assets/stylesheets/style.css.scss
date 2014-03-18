@@ -1,5 +1,4 @@
 @import "variables";
-@import "semantic-ui";
 
 html {
   font-size: 100%;
@@ -15,8 +14,13 @@ body {
   min-width: 320px;
   overflow-x: hidden;
 
+  #main {
+    padding-left: 2%;
+  }
+
   #application {
     background-color: #F7F7F7;
+
   }
 }
 

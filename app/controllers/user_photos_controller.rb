@@ -64,8 +64,10 @@ class UserPhotosController < ApplicationAuthController
 
     respond_to do |format|
       if @user_photo.save
-        format.html { redirect_to @user_photo, notice: 'User photo was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user_photo }
+        #format.html { redirect_to @user_photo, notice: 'User photo was successfully created.' }
+        format.html { redirect_to action: 'index' }
+        format.json { render action: 'index', status: :created, location: @user_photo }
+        flash.notice = 'User photo was successfully created.'
       else
         format.html { render action: 'new' }
         format.json { render json: @user_photo.errors, status: :unprocessable_entity }
@@ -78,8 +80,9 @@ class UserPhotosController < ApplicationAuthController
   def update
     respond_to do |format|
       if @user_photo.update(user_photo_params)
-        format.html { redirect_to @user_photo, notice: 'User photo was successfully updated.' }
+        format.html { redirect_to action: 'index' }
         format.json { head :no_content }
+        flash.notice = 'User photo was successfully updated.'
       else
         format.html { render action: 'edit' }
         format.json { render json: @user_photo.errors, status: :unprocessable_entity }

@@ -25,16 +25,16 @@
           </div>
       </div>
       <div class="ui piled segment" style="background-color: #f3f0ff; border: solid 2px;">
-        <div class="field">
-            <div class="ui checkbox">
-              <input type="checkbox" name="fun">
-              <label>表示名に本名を使用</label>
-            </div>
-        </div>
         <div class="inline field">
-            <%= f.label :nickname %>
-            <div class="ui fluid input">
-                <%= f.text_field :nickname, placeholder:"ニックネーム" %>
+            <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="fun">
+                  <label>表示名に本名を使用</label>
+                </div>
+            </div>
+            <div id="nickname_field" class="ui fluid input">
+              <%= f.label :nickname %>
+              <%= f.text_field :nickname, placeholder:"ニックネーム", size:"10" %>
             </div>
         </div>
       </div>

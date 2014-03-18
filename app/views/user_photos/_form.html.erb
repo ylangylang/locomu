@@ -1,7 +1,7 @@
-<div id="user_photo-form" class="ui form segment">
+<div id="user_photo_form" class="ui form segment">
 <%= form_for(@user_photo, html: {multipart: true} ) do |f| %>
 
-    <% if @user_photo.errors.any? %>
+  <% if @user_photo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user_photo.errors.count, "error") %> prohibited this user_photo from being saved:</h2>
 
@@ -13,22 +13,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :uploaded_image %>
-    <%= f.file_field :uploaded_image %>
-  </div>
+  <div class="ui two column grid">
+    <div class="column">
+      <div class="field">
+        <%= f.label :uploaded_image %>
+        <%= f.file_field :uploaded_image %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :comment %>
+        <%= f.text_area :comment, maxlength:150, size:"20x4" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_field :comment %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+      <div class="actions">
+        <%= f.submit class:"ui teal button" %>
+      </div>
+    </div>
   </div>
 <% end %>
 </div>

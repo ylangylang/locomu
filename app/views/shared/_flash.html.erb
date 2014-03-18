@@ -1,0 +1,14 @@
+<div id="shared_flash">
+  <% if flash.notice %>
+      <div class="ui info message">
+        <p class="header inline">notice: </p>
+        <p class="inline"><%= flash.notice %></p>
+      </div>
+  <% end %>
+  <% if flash.alert %>
+      <div class="ui warning message">
+        <p class="header inline">warning: </p>
+        <p class="inline"><%= flash.alert %></p>
+      </div>
+  <% end %>
+</div>

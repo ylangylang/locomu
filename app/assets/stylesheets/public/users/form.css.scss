@@ -1,7 +1,12 @@
 div#user-form {
+  margin-left: 5%;
   margin-bottom: 0px;
 
   div.field {
     margin-bottom: 1.5em;
+  }
+  
+  #nickname_field {
+    max-width: 20em;
   }
 }
