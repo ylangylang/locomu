@@ -18,6 +18,10 @@ class PhotoImage < ActiveRecord::Base
     self.icon_size = self.icon.size
   end
 
+  def total_size
+    return (self.image_size + self.thumb_size + self.icon_size)
+  end
+
   ################################################################################################
   # private
   ################################################################################################

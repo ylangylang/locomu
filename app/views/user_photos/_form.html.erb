@@ -15,10 +15,19 @@
 
   <div class="ui two column grid">
     <div class="column">
-      <div class="field">
-        <%= f.label :uploaded_image %>
-        <%= f.file_field :uploaded_image %>
-      </div>
+      <% if @user_photo.new_record? %>
+          <div class="field">
+            <%= f.label :uploaded_image %>
+            <%= f.file_field :uploaded_image %>
+          </div>
+      <% end %>
+      <% if @user_photo.photo_image.image.present? %>
+        <%= user_thumb_tag(@user_photo, class:"rounded ui image") %>
+        <div class="ui secondary segment">
+            <p>image size: <%= @user_photo.photo_image.image_size/1024 %> KB</p>
+            <p>created at: <%= @user_photo.created_at %></p>
+        </div>
+      <% end %>
     </div>
     <div class="column">
       <div class="field">

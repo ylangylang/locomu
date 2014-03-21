@@ -6,3 +6,8 @@ ja:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "..."
+
+  errors: &errors
+    messages:
+      too_big_imaage: "のファイルサイズが大きすぎます(最大10MB)"
+      invalid_image: "登録可能なファイルフォーマットは、JPEG / GIF / PNGです"

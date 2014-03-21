@@ -10,11 +10,30 @@ class UserPhoto < ActiveRecord::Base
   attr_reader :uploaded_image
   #attr_accessible :user_ids
 
+  validate :temp_image, persence: true
+  validate :check_image
+
   IMAGE_TYPES = {
       "image/jpeg" => "jpg",
       "image/gif" => "gif",
       "image/png" => "png"
   }.freeze
+
+  def check_image
+    if not self.new_record?
+      return
+    end
+    if temp_image.blank?
+      errors.add(:uploaded_image, :blank)
+      return
+    end
+    if temp_image.size > 10.megabytes
+      errors.add(:uploaded_image, :too_big_image)
+    end
+    unless IMAGE_TYPES.has_key?(content_type)
+      errors.add(:uploaded_image, :imvalid_image)
+    end
+  end
 
   # content_type変換
   def convert_content_type(ctype)

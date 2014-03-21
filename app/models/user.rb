@@ -10,10 +10,31 @@ class User < ActiveRecord::Base
       provisional: 2,   # 仮登録
   }.freeze
 
+  GENDER = {
+      0 => 'not selected',  # 未選択
+      1 => 'Male',    # Male
+      2 => 'Female',  # Female
+  }.freeze
 
   # フルネーム(姓＋名)
   def full_name
     self.last_name + self.first_name
+  end
+
+  def gender_text
+    unless GENDER.has_key?(self.gender)
+      'Other'
+    else
+      GENDER[self.gender]
+    end
+  end
+
+  def gender_label(val)
+    unless GENDER.has_key?(val)
+      'Other'
+    else
+      GENDER[val]
+    end
   end
 
   def has_status?(val)

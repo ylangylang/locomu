@@ -60,7 +60,11 @@ class UserPhotosController < ApplicationAuthController
     @user_photo.user_id = current_user.id
 
     @user_photo.build_photo_image
-    @user_photo.photo_image.uploaded_image = @user_photo.temp_image
+
+    if @user_photo.content_type.present?
+      @user_photo.photo_image.uploaded_image = @user_photo.temp_image
+      @user_photo.total_size = @user_photo.photo_image.total_size
+    end
 
     respond_to do |format|
       if @user_photo.save
@@ -128,7 +132,7 @@ class UserPhotosController < ApplicationAuthController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_photo_params
-      params.require(:user_photo).permit(:user_id, :file_name, :title, :content_type, :comment, :uploaded_image,
+      params.require(:user_photo).permit(:user_id, :file_name, :title, :content_type, :comment, :uploaded_image, :total_size,
                                          photo_image_attributes: [:uploaded_image])
     end
 end

@@ -1,4 +1,8 @@
 @import "variables";
+@import "bootstrap/mixins";
+@import "bootstrap/modals";
+@import "bootstrap/scaffolding";
+
 
 html {
   font-size: 100%;
@@ -20,7 +24,38 @@ body {
 
   #application {
     background-color: #F7F7F7;
+  }
 
+  .style.message {
+    position: relative;
+    min-height: 18px;
+    margin: 0.5em 0em;
+    height: auto;
+    background-color: #EFEFEF;
+    padding: 1em;
+    line-height: 1.33;
+    color: rgba(0, 0, 0, 0.6);
+    -webkit-transition: opacity 0.1s ease,
+    color 0.1s ease,
+    background 0.1s ease,
+    -webkit-box-shadow 0.1s ease;
+    transition: opacity 0.1s ease,
+    color 0.1s ease,
+    background 0.1s ease,
+    box-shadow 0.1s ease;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 0.325em 0.325em 0.325em 0.325em;
+  }
+
+  #error_explanation {
+    //@extend .ui.warning.message;
+    @extend .style.message;
+
+    background-color: #F1D7D7;
+    color: #A95252;
   }
 }
 

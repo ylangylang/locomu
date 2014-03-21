@@ -37,10 +37,13 @@
             </div>
         <% end %>
         <div class="content">
-          <%= user_photo.summary %>
+          <p class="title"><%= user_photo.disp_title %></p>
+          <p>by <%= user_photo.user.full_name %></p>
+          <% if user_photo.user.id == current_user_auth.user_id %>
               <%= link_to '編集', edit_user_photo_path(user_photo), "class"=>"ui tiny active button" %>
               <%= link_to '削除', user_photo, "class"=>"ui tiny active button",
                           method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </div>
       </div>
       <% end %>

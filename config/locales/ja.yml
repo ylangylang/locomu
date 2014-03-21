@@ -131,9 +131,9 @@ ja:
     select:
       prompt: 選択してください。
     submit:
-      create: 登録する
-      submit: 保存する
-      update: 更新する
+      create: Create
+      submit: Save
+      update: Update
   number:
     currency:
       format:

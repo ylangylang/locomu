@@ -22,7 +22,18 @@
     //margin: 0em, 0em, 1em, 0em;
     margin: 0em;
     margin-bottom: 1em;
-    min-height: 8em;
+    min-height: 21em;
+
+    .content {
+      padding-bottom: 0.1em;
+      .title {
+        font-weight: bold;
+       // text-shadow:
+       //   0 0 15px #edf8ff,
+       //    0 0 10px #edf8ff,
+       //   0 0 20px #edf8ff;
+      }
+    }
   }
 
   .ui.ribbon.label {
@@ -33,13 +44,6 @@
 
   #image_content {
     position: relative;
-  }
-
-  #user_thumb {
-    //position: absolute;
-//  top: 0em;
-//  width: 100%;
-//  min-height: 8em;
   }
 
 }

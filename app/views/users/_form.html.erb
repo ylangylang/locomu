@@ -1,4 +1,4 @@
-<div id="user-form" class="ui form segment">
+<div id="user_form" class="ui fluid form segment">
   <%= form_for(@user) do |f| %>
       <% if @user.errors.any? %>
           <div id="error_explanation">
@@ -15,73 +15,63 @@
       <div class="two fields">
         <div class="field">
           <%= f.label :last_name %>
-          <%= f.text_field :last_name, placeholder:"姓" %>
+          <%= f.text_field :last_name, placeholder:"姓", size:"10" %>
         </div>
         <div class="field">
             <%= f.label :first_name %>
             <div class="ui input">
-                <%= f.text_field :first_name, placeholder:"名" %>
+                <%= f.text_field :first_name, placeholder:"名", size:"10" %>
             </div>
           </div>
       </div>
-      <div class="ui piled segment" style="background-color: #f3f0ff; border: solid 2px;">
-        <div class="inline field">
-            <div class="field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="fun">
-                  <label>表示名に本名を使用</label>
-                </div>
-            </div>
-            <div id="nickname_field" class="ui fluid input">
-              <%= f.label :nickname %>
-              <%= f.text_field :nickname, placeholder:"ニックネーム", size:"10" %>
-            </div>
+      <div class="field">
+        <div id="nickname_field" class="ui fluid input">
+          <%= f.label :nickname %>
+          <%= f.text_field :nickname, placeholder:"ニックネーム", size:"10" %>
         </div>
       </div>
       <div class="inline field">
+        <div class="ui checkbox">
+          <%= f.check_box :use_nickname, {checked: false}, true, false %>
+          <label>表示名にニックネームを使用</label>
+        </div>
+      </div>
+      <div class="two fields">
+      <div class="inline field">
         <i class="large green calendar icon"></i>
         <%= f.label :birthday %>
-        <%= f.date_select :birthday,
-                          {start_year: Time.now.year-70,
-                           end_year: Time.now.year,
-                           default: Time.parse('1980/06/15'),
-                           use_month_numbers: true},
-                          {maxlength:4}
-        %>
-        <%= f.date_field :birthday %>
-        <%= f.text_field :birthday, class: 'datepicker' %>
-
+        <%= f.text_field :birthday, id:"datepicker", class:"ui input item", size:"10" %>
       </div>
       <div class="inline field">
         <i class="large red female icon" style="margin: 0px;"></i>
         <i class="large male icon" style="margin: 0px;"></i>
           <%= f.label :gender %>
           <div class="ui selection dropdown">
-            <input type="hidden" name="gender">
-            <div class="text">Female</div>
+            <%= f.hidden_field :gender %>
+            <div class="default text"><%= @user.gender_text %></div>
             <i class="dropdown icon"></i>
             <div class="menu">
-              <div class="item" data-value="0">select</div>
-              <div class="item" data-value="2">Female</div>
-              <div class="item" data-value="1">Male</div>
+              <div class="item" data-value="2"><%= @user.gender_label(2) %></div>
+              <div class="item" data-value="1"><%= @user.gender_label(1) %></div>
             </div>
           </div>
       </div>
-      <div class="inline field">
-        <i class="large red bell outline icon"></i>
-        <%= f.label :mail_notification  %>
-        <label>&nbsp; off &nbsp;</label>
-        <div class="ui toggle checkbox">
-          <input id="user_mail_notification" name="user[mail_notification]" type="checkbox" value="1" />
-          <label>on</label>
-        </div>
-        <input name="user[mail_notification]" type="hidden" value="0" />
       </div>
-      <div class="inline field">
-      </div>
-      <div class="field">
-        <%= f.label :avatar %>
-        <%= f.text_field :avatar %>
+      <div class="two fields">
+          <div class="inline field">
+            <i class="large red bell outline icon"></i>
+            <%= f.label :mail_notification  %>
+            <label>&nbsp; off &nbsp;</label>
+            <div class="ui toggle checkbox">
+              <input id="user_mail_notification" name="user[mail_notification]" type="checkbox" value="1" />
+              <label>on</label>
+            </div>
+            <input name="user[mail_notification]" type="hidden" value="0" />
+          </div>
+          <div class="field">
+            <%= f.label :avatar %>
+            <%= f.text_field :avatar %>
+          </div>
       </div>
       <div class="actions">
         <%= f.submit(class:"positive ui button") %>

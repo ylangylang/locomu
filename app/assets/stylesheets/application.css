@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require 'variables'
- *= require "bootstrap"
  *= require 'semantic-ui'
  *= require 'scaffolds'
  *= require 'style'
