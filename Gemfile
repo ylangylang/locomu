@@ -50,11 +50,15 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem "capistrano-unicorn", require: false
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
